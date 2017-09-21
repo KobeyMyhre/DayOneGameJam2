@@ -6,7 +6,7 @@ public class PathlessSeeking : MonoBehaviour {
 
 
     public GameObject target;
-    public float speed = 1;
+    public float Force = 1;
     Vector3 velocity;
     Rigidbody rb;
 
@@ -21,7 +21,7 @@ public class PathlessSeeking : MonoBehaviour {
     public void DoSeek()
     {
         Vector3 dir = (target.transform.position - transform.position).normalized;
-        Vector3 desiredVelocity = dir * speed;
+        Vector3 desiredVelocity = dir * Force;
 
 
         Vector3 steeringForce = desiredVelocity - rb.velocity;
