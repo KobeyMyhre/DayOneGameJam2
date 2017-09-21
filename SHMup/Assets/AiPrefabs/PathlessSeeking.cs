@@ -22,7 +22,7 @@ public class PathlessSeeking : MonoBehaviour {
     public Vector3 DoSeek()
     {
         Vector3 dir = (target.transform.position - transform.position).normalized;
-        Vector3 desiredVelocity = dir; //
+        Vector3 desiredVelocity = dir ; //
 
 
         Vector3 steeringForce = desiredVelocity - rb.velocity;

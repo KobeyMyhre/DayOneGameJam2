@@ -22,13 +22,13 @@ public class EvadeForce : MonoBehaviour {
     {
         Vector3 target = Predator.transform.position + Predator.GetComponent<Rigidbody>().velocity;
         Vector3 dir = -(target - transform.position).normalized;
-        Vector3 desiredVelocity = dir; //
+        Vector3 desiredVelocity = dir;
         Vector3 steeringForce = desiredVelocity - rb.velocity;
 
 
 
 
-        return (steeringForce.normalized * 2) * Force;
+        return (steeringForce.normalized * 2 )  * Force;
 
 
         

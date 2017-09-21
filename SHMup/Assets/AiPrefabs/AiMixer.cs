@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AiMixer : MonoBehaviour {
 
-    public GameObject Prey;
+    private GameObject Prey;
     Flocking flock;
     EvadeForce evade;
     Wander wander;
@@ -20,7 +20,7 @@ public class AiMixer : MonoBehaviour {
     public float initWanderRadius;
     public float initWanderJitter;
     public float initWanderDistance;
-   
+
     public float flockForce
     {
         set
@@ -136,8 +136,9 @@ public class AiMixer : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
+        Prey = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
         flock = GetComponent<Flocking>();
         evade = GetComponent<EvadeForce>();
@@ -156,30 +157,41 @@ public class AiMixer : MonoBehaviour {
         wanderJitter = initWanderJitter;
         wanderDistance = initWanderDistance;
 
-        
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         Vector3 ForceToBeApplied = flock.flocking() + evade.DoEvade() + wander.DoWander() + seek.DoSeek();
+
+        ForceToBeApplied.Normalize();
+
         Vector3 Vflock = flock.flocking();
         Vector3 Vevade = evade.DoEvade();
         Vector3 Vseek = seek.DoSeek();
+
         Vector3 Vwander = wander.DoWander();
 
-        Debug.Log("FLOCK");
-        Debug.Log(Vflock.ToString());
-        Debug.Log("EVADE");
-        Debug.Log(Vevade.ToString());
-        Debug.Log("SEEK");
-        Debug.Log(Vseek.ToString());
-        Debug.Log("WANDER");
-        Debug.Log(Vwander.ToString());
+        //Debug.Log("FLOCK");
+        //Debug.Log(Vflock.ToString());
+        //Debug.Log("EVADE");
+        //Debug.Log(Vevade.ToString());
+        //Debug.Log("SEEK");
+        //Debug.Log(Vseek.ToString());
+        //Debug.Log("WANDER");
+        //Debug.Log(Vwander.ToString());
+        Debug.Log(ForceToBeApplied );
+        Debug.Log(ForceToBeApplied * speed);
+        rb.AddForce(ForceToBeApplied * speed);
 
+        //ForceToBeApplied.x = Mathf.Clamp(ForceToBeApplied.x, -5, 5);
+        //ForceToBeApplied.y = Mathf.Clamp(ForceToBeApplied.y, -5, 5);
+        //ForceToBeApplied.z = Mathf.Clamp(ForceToBeApplied.z, -5, 5);
 
+        //rb.velocity = ForceToBeApplied * speed;
 
-        rb.velocity = ForceToBeApplied * speed;
+       
 
         Vector3 head = rb.velocity;
         head.y = 0;
