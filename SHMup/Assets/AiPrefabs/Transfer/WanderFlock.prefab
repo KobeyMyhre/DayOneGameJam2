@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114193504601918654}
   m_Layer: 0
   m_Name: WanderFlock
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,8 +41,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313067833032430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.4, y: 3, z: 65.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 8.329536, y: 3, z: -69.4}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,7 +99,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &114193504601918654
 MonoBehaviour:
@@ -115,7 +115,7 @@ MonoBehaviour:
   radius: 2
   jitter: 3
   distance: 4
-  Force: 20
+  Force: 60
 --- !u!114 &114670865390108154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1
-  Force: 10
+  Force: 30
 --- !u!114 &114855050661205008
 MonoBehaviour:
   m_ObjectHideFlags: 1
