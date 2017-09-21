@@ -26,7 +26,7 @@ public class BulletController : MonoBehaviour {
     {
         if(other.CompareTag("Enemy"))
         {
-            other.GetComponent<SeekingAIHealth>().TakeDamage(damageAmount);
+            other.GetComponent<Idamageable>().TakeDamage(damageAmount);
         }
         if (!other.CompareTag("bullet") && !other.CompareTag("Player"))
         {

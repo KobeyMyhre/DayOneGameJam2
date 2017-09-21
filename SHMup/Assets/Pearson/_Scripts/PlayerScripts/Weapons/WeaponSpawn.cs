@@ -24,8 +24,8 @@ public class WeaponSpawn : MonoBehaviour {
 
             switch(gun)
             {
-                case 1:
-                    Instantiate(shotgun,);
+                //case 1:
+                //    Instantiate(shotgun,);
             }
         }
 
