@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour , Idamageable
 		if(health <= 0)
         {
             alive = false;
+            Destroy(gameObject);
         }
 
 	}

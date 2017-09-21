@@ -112,6 +112,7 @@ MonoBehaviour:
   speed: 100
   lifetime: 2
   damageAmount: 100
+  ps: {fileID: 198861317078578196, guid: 714a656290e9e384597809b25baf743e, type: 2}
 --- !u!135 &135679195967552250
 SphereCollider:
   m_ObjectHideFlags: 1

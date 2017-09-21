@@ -20,18 +20,16 @@ public class WeaponSpawn : MonoBehaviour {
 
         if(spawntime <= 0)
         {
-            gun = Random.Range(1, 2);
+            gun = Random.Range(0, 100);
             Vector3 spawnlocation = new Vector3(Random.Range(minrange, maxrange), 3, Random.Range(minrange, maxrange));
-            switch(gun)
-            {
-                case 1:
+           
+                if(gun > 50)
                     Instantiate(shotgun, spawnlocation, shotgun.transform.rotation);
-                    break;
-                case 2:
+                else if(gun < 51)
                     Instantiate(laser, spawnlocation, shotgun.transform.rotation);
-                    break;
 
-            }
+
+        
             spawntime = Random.Range(minspawn, maxspawn);
         }
 

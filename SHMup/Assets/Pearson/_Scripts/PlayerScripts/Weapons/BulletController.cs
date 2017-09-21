@@ -22,6 +22,7 @@ public class BulletController : MonoBehaviour {
         
 	}
 
+    public ParticleSystem ps;
     public void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy"))
@@ -33,6 +34,8 @@ public class BulletController : MonoBehaviour {
         }
         if (!other.CompareTag("bullet") && !other.CompareTag("Player"))
         {
+            ParticleSystem p = Instantiate(ps, transform.position, transform.rotation);
+            Destroy(p, 3);
             Destroy(gameObject);
         }
     }
