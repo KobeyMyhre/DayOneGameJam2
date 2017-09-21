@@ -72,7 +72,11 @@ public class WeaponManager : MonoBehaviour {
         gun = DesiredWeapon;
         if (weaponTime <= 0)
         {
-            gun = 2;
+            gun = 0;
+
+            line.enabled = false;
+            line.SetPosition(0, Pos[0].position);
+            line.SetPosition(1, Pos[0].position);
         }
         dt = Time.deltaTime;
 

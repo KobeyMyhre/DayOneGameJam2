@@ -7,7 +7,7 @@ public class WeaponSpawn : MonoBehaviour {
     public float minrange, maxrange;
     float spawntime;
     int gun;
-    GameObject shotgun, laser, aids;
+    public GameObject shotgun, laser, aids;
 	// Use this for initialization
 	void Start () {
         spawntime = Random.Range(minspawn, maxspawn);
@@ -20,13 +20,19 @@ public class WeaponSpawn : MonoBehaviour {
 
         if(spawntime <= 0)
         {
-            gun = Random.Range(1, 3);
-
+            gun = Random.Range(1, 2);
+            Vector3 spawnlocation = new Vector3(Random.Range(minrange, maxrange), 3, Random.Range(minrange, maxrange));
             switch(gun)
             {
-                //case 1:
-                //    Instantiate(shotgun,);
+                case 1:
+                    Instantiate(shotgun, spawnlocation, shotgun.transform.rotation);
+                    break;
+                case 2:
+                    Instantiate(laser, spawnlocation, shotgun.transform.rotation);
+                    break;
+
             }
+            spawntime = Random.Range(minspawn, maxspawn);
         }
 
 	}
