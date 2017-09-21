@@ -607,40 +607,54 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4200394304811700, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+    - target: {fileID: 4833133483896426, guid: dd16effb3370a124c8571d839016fe51, type: 2}
       propertyPath: m_LocalPosition.x
       value: -22.53
       objectReference: {fileID: 0}
-    - target: {fileID: 4200394304811700, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+    - target: {fileID: 4833133483896426, guid: dd16effb3370a124c8571d839016fe51, type: 2}
       propertyPath: m_LocalPosition.y
       value: 2.72
       objectReference: {fileID: 0}
-    - target: {fileID: 4200394304811700, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+    - target: {fileID: 4833133483896426, guid: dd16effb3370a124c8571d839016fe51, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200394304811700, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+    - target: {fileID: 4833133483896426, guid: dd16effb3370a124c8571d839016fe51, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200394304811700, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+    - target: {fileID: 4833133483896426, guid: dd16effb3370a124c8571d839016fe51, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200394304811700, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+    - target: {fileID: 4833133483896426, guid: dd16effb3370a124c8571d839016fe51, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4200394304811700, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+    - target: {fileID: 4833133483896426, guid: dd16effb3370a124c8571d839016fe51, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4200394304811700, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+    - target: {fileID: 4833133483896426, guid: dd16effb3370a124c8571d839016fe51, type: 2}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114450193104782882, guid: dd16effb3370a124c8571d839016fe51,
+        type: 2}
+      propertyPath: weapontime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009118278409056, guid: dd16effb3370a124c8571d839016fe51, type: 2}
+      propertyPath: m_Name
+      value: LaserPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 114450193104782882, guid: dd16effb3370a124c8571d839016fe51,
+        type: 2}
+      propertyPath: weaponType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: dd16effb3370a124c8571d839016fe51, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1076394160 stripped
 Transform:
@@ -762,11 +776,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minspawn: 20
   maxspawn: 60
-  minrange: -100
-  maxrange: 100
-  shotgun: {fileID: 1009118278409056, guid: dd16effb3370a124c8571d839016fe51, type: 2}
-  laser: {fileID: 1063246702989742, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
-  aids: {fileID: 1063246702989742, guid: 328fdad21d48ed348b3617cc29fab850, type: 2}
+  minrange: 0
+  maxrange: 0
+  shotgun: {fileID: 0}
+  laser: {fileID: 0}
+  aids: {fileID: 0}
 --- !u!4 &1578035085
 Transform:
   m_ObjectHideFlags: 0
