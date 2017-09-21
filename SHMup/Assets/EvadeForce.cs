@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EvadeForce : MonoBehaviour {
-
+    [HideInInspector]
     public GameObject Predator;
+    [HideInInspector]
     public float Force;
     private Vector3 velocity;
     Rigidbody rb;
@@ -17,22 +18,20 @@ public class EvadeForce : MonoBehaviour {
 	}
 	
 
-    public void DoEvade()
+    public Vector3 DoEvade()
     {
         Vector3 target = Predator.transform.position + Predator.GetComponent<Rigidbody>().velocity;
         Vector3 dir = -(target - transform.position).normalized;
-        Vector3 desiredVelocity = dir * Force;
+        Vector3 desiredVelocity = dir; //
         Vector3 steeringForce = desiredVelocity - rb.velocity;
 
 
 
 
-        rb.AddForce(steeringForce.normalized * 2);
+        return (steeringForce.normalized * 2) * Force;
 
 
-        Vector3 head = rb.velocity;
-        head.y = 0;
-        transform.LookAt(transform.position + head, Vector3.up);
+        
     }
 
 	// Update is called once per frame

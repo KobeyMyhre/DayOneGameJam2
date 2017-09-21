@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Wander : MonoBehaviour {
 
-   
-    public Vector3 target;
+
+    private Vector3 target;
+    [HideInInspector]
     public float radius;
+    [HideInInspector]
     public float jitter;
+    [HideInInspector]
     public float distance;
-    public float Force;
-    public Vector3 steeringForce;
+    private Vector3 steeringForce;
     Rigidbody rb;
+    [HideInInspector]
+    public float Force;
+    
 
 
 	// Use this for initialization
@@ -20,7 +25,7 @@ public class Wander : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
 	}
 
-    public void DoWander()
+    public Vector3 DoWander()
     {
        
         target = Vector3.zero;
@@ -44,15 +49,16 @@ public class Wander : MonoBehaviour {
 
 
         Vector3 dir = (target - transform.position).normalized;
-        Vector3 desiredVelocity = dir * Force;
+        Vector3 desiredVelocity = dir ;//
 
 
         Debug.DrawLine(transform.position, target, Color.cyan);
 
 
         steeringForce = desiredVelocity - rb.velocity;
-        rb.AddForce(steeringForce);
-        transform.forward = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        return steeringForce * Force;
+        //rb.AddForce(steeringForce);
+        //transform.forward = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
     }
 

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PathlessSeeking : MonoBehaviour {
 
-
+    [HideInInspector]
     public GameObject target;
-    public float Force = 1;
+    [HideInInspector]
+    public float Force;
     Vector3 velocity;
     Rigidbody rb;
 
@@ -18,17 +19,15 @@ public class PathlessSeeking : MonoBehaviour {
     }
 	
 
-    public void DoSeek()
+    public Vector3 DoSeek()
     {
         Vector3 dir = (target.transform.position - transform.position).normalized;
-        Vector3 desiredVelocity = dir * Force;
+        Vector3 desiredVelocity = dir; //
 
 
         Vector3 steeringForce = desiredVelocity - rb.velocity;
-        rb.AddForce(steeringForce);
-        Vector3 head = rb.velocity;
-        head.y = 0;
-        transform.LookAt(transform.position + head, Vector3.up);
+        return steeringForce * Force;
+       
     }
 
 	// Update is called once per frame

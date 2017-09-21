@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SeekingAIHealth : MonoBehaviour, Ikillable, Idamageable {
-
+public class AIhealth : MonoBehaviour, Ikillable, Idamageable {
 
     public float health;
     private float MaxHealth;
 
+	// Use this for initialization
+	void Start () {
+        MaxHealth = health;
+	}
+	
 
     public void Die()
     {
@@ -17,23 +21,15 @@ public class SeekingAIHealth : MonoBehaviour, Ikillable, Idamageable {
         }
     }
 
-    public void TakeDamage(float DamageTaken)
+    public void TakeDamage(float damageTaken)
     {
-        health -= DamageTaken;
+        health -= damageTaken;
+        Die();
     }
 
 
-
-	// Use this for initialization
-	void Start ()
-    {
-        MaxHealth = health;
-	}
-	
 	// Update is called once per frame
-	void Update ()
-    {
-
+	void Update () {
 		
 	}
 }
