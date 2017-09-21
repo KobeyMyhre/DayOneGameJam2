@@ -11,6 +11,8 @@ public class WeaponManager : MonoBehaviour {
     float cooldown;
     int gun;
     float dt;
+
+    public LineRenderer line;
     // Use this for initialization
     void Start () {
         gun = DesiredWeapon;
@@ -30,6 +32,24 @@ public class WeaponManager : MonoBehaviour {
         }
     }
 
+    void laser()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(Pos[0].position, Pos[0].forward, out hit,1000))
+        {
+            if (hit.collider.GetComponent<Idamageable>() != null)
+            {
+
+                hit.collider.GetComponent<Idamageable>().TakeDamage(1);
+              
+            }
+          
+            line.enabled = true;
+            line.SetPosition(0, Pos[0].position);
+            line.SetPosition(1, hit.point);
+        }
+      
+    }
     void Pistol()
     {
         cooldown -= dt;
@@ -52,7 +72,7 @@ public class WeaponManager : MonoBehaviour {
         gun = DesiredWeapon;
         if (weaponTime <= 0)
         {
-            gun = 0;
+            gun = 2;
         }
         dt = Time.deltaTime;
 
@@ -68,9 +88,18 @@ public class WeaponManager : MonoBehaviour {
                 case 1:
                     shotgun();
                     break;
+                case 2:
+                    laser();
+                    break;
 
             }
-        } 
-	}
+        }
+        else
+        {
+            line.enabled = false;
+            line.SetPosition(0, Pos[0].position);
+            line.SetPosition(1, Pos[0].position);
+        }
+    }
     
 }
