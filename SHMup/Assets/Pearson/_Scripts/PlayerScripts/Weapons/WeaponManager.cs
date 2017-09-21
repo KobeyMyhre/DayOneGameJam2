@@ -31,7 +31,6 @@ public class WeaponManager : MonoBehaviour {
             cooldown = .1f;
         }
     }
-
     void laser()
     {
         RaycastHit hit;
@@ -40,7 +39,7 @@ public class WeaponManager : MonoBehaviour {
             if (hit.collider.GetComponent<Idamageable>() != null)
             {
 
-                hit.collider.GetComponent<Idamageable>().TakeDamage(1);
+                hit.collider.GetComponent<Idamageable>().TakeDamage(10);
               
             }
           
