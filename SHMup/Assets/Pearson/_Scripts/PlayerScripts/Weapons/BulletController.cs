@@ -26,7 +26,10 @@ public class BulletController : MonoBehaviour {
     {
         if(other.CompareTag("Enemy"))
         {
-            other.GetComponent<Idamageable>().TakeDamage(damageAmount);
+            if (other.GetComponent<Idamageable>() != null)
+            {
+                other.GetComponent<Idamageable>().TakeDamage(damageAmount);
+            }
         }
         if (!other.CompareTag("bullet") && !other.CompareTag("Player"))
         {
